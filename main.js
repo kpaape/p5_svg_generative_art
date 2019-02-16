@@ -23,7 +23,7 @@ function draw() {
         push();
         translate(5, 0);
         for(var j = 0; j < (width-50)/crystalSize; j++) {
-            crystalSides = rollDie(4) + 2;
+            crystalSides = rollDie(6) + 2;
             basicLines();
             outlineShape();
             translate(crystalSize+5, 0);
@@ -37,22 +37,37 @@ function outlineShape() {
     let strokeColor = palette[rollDie(palette.length)-1];
     push();
     translate(crystalSize/2, crystalSize/2);
+    if(rollDie(2) == 1) {
+        rotate(180);
+    }
     strokeWeight(rollDie(2)*2);
     stroke(strokeColor);
     if(rollDie(3) == 1) {
         ellipse(0, 0, crystalSize, crystalSize);
         if(rollDie(2) == 1) {
+            if(rollDie(2) == 1) {
+                rotate(180/crystalSides);
+            }
             ellipse(0, 0, crystalSize*0.66, crystalSize*0.66);
         }
         if(rollDie(2) == 1) {
+            if(rollDie(2) == 1) {
+                rotate(180/crystalSides);
+            }
             ellipse(0, 0, crystalSize*0.33, crystalSize*0.33);
         }
     } else {
         createPolygon(0, 0, crystalSize/2, crystalSides);
         if(rollDie(2) == 1) {
+            if(rollDie(2) == 1) {
+                rotate(180/crystalSides);
+            }
             createPolygon(0, 0, crystalSize/3, crystalSides);
         }
         if(rollDie(2) == 1) {
+            if(rollDie(2) == 1) {
+                rotate(180/crystalSides);
+            }
             createPolygon(0, 0, crystalSize/6, crystalSides);
         }
     }
@@ -80,6 +95,9 @@ function basicLines() {
     noFill();
     push();
     translate(crystalSize/2, crystalSize/2);
+    if(rollDie(2) == 1) {
+        rotate(180);
+    }
     strokeWeight(rollDie(2)*2);
     for(let i = 0; i < crystalSides; i++) {
         stroke(strokeColor);
